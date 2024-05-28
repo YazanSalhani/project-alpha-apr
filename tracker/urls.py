@@ -26,4 +26,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path('', edirect_to_projects_list, name="home"),
     path('projects/', include("projects.urls")),
+    path('accounts/', include("accounts.urls")),
 ]
