@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from accounts.forms import LogInForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 def accounts_login(request):
     if request.method =="POST":
@@ -23,3 +23,7 @@ def accounts_login(request):
     }
 
     return render(request, "accounts/login.html", context)
+
+def accounts_logout(request):
+    logout(request)
+    return redirect("login")
