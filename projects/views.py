@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from tasks.models import Task
 from projects.forms import ProjectForm
 
+
 # Create your views here.
 @login_required
 def list_projects(request):
@@ -12,6 +13,7 @@ def list_projects(request):
         "projects": projects
     }
     return render(request, "projects/list.html", context)
+
 
 @login_required
 def show_project(request, id):
@@ -22,6 +24,7 @@ def show_project(request, id):
         "tasks": tasks
     }
     return render(request, "projects/show_project.html", context)
+
 
 @login_required
 def create_project(request):
