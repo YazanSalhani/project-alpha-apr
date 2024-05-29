@@ -9,21 +9,19 @@ def accounts_login(request):
     if request.method == "POST":
         form = LogInForm(request.POST)
         if form.is_valid():
-            username = request.POST['username']
-            password = request.POST['password']
-            user = authenticate(
-                request,
-                username=username,
-                password=password)
+            username = request.POST["username"]
+            password = request.POST["password"]
+            user = authenticate(request, username=username, password=password)
 
             if user is not None:
-                login(request, user,)
+                login(
+                    request,
+                    user,
+                )
                 return redirect("list_projects")
     else:
         form = LogInForm()
-    context = {
-        "form": form
-    }
+    context = {"form": form}
     return render(request, "accounts/login.html", context)
 
 
@@ -52,7 +50,5 @@ def accounts_signup(request):
 
     else:
         form = SignUPForm()
-    context = {
-        "form": form
-    }
+    context = {"form": form}
     return render(request, "accounts/signup.html", context)
